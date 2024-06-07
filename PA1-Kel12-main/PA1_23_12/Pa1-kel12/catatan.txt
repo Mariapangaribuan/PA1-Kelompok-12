@@ -1,0 +1,39 @@
+------ php artisan make:model -m-----------
+---- Buat Database Admin  
+---- Buat model Admin->tambahkan $guard = 'admin'
+
+
+-----------Pergi ke Config/Auth->tambahkan guard admin dan tabel admins----
+
+
+------Copy auth Controller ubah jadi Adminauth------------
+------ ubah namespace jadi App\Http\Controllers\AdminAuth;-----
+
+
+------------Controller/Auth/AuthenticatedSessionController
+------------->untuk mengatur arah dari Auth
+-------------edit semua auth jadi admin.auth
+
+
+-----------Kemudian Pergi ke Provides/RouteServiceProvider
+--------->tambahkan public const ADMIN_home= '/admin/dashboard'
+
+------------Controller/Auth/AuthenticatedSessionController
+------>tambahkaan admin destroy
+
+------------Kemudian Duplicate Request/Auth -> Adminauth
+------ ubah namespace jadi App\Http\Controllers\AdminAuth;-----
+------->tambahkan !Auth::guard() ---------di Adminauth/LoginRequest
+
+
+-----------Kemudian panggil adminRequest di Adminauth Controller 1
+
+
+Buat middleware/Admin
+Buat Controller/Admin
+
+Tambahkan middleware Admin di kernel
+
+Tambahkan beberapa pengecekan di middleware/admin
+
+buat route admin
